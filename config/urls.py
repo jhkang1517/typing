@@ -14,8 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from tycode import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    # path('typing/', views.main), # typing 이라는 url이 호출되면, views.py 의 main 함수를 호출
+    path('typing/', include('tycode.urls')),
 ]
